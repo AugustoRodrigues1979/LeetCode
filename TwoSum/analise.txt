@@ -1,0 +1,78 @@
+22:40 21/04/2024 - Two Sum - link: https://leetcode.com/problems/two-sum/description/
+
+A + B = C
+
+
+a) Vetor com N numeros inteiros, 
+b) N varia entre 2 ate 10^4
+c) numero inteiro varia entre -10^9 ate 10^9
+d) C varia entre -10^9 ate 10^9
+e) somente existe uma resposta
+
+
+A + B = C
+Logo
+	* Se A == C, B == 0
+	* Se A <  C, B == C - A
+
+1. I[A] = 0; I[B] = 1
+
+2. P = 2
+
+3. Enquanto P <= N
+	Se V[P-2] == C
+		I[A] 	= P-2
+		I[B] 	= Varrer o V a procura da posicao do elemento 0
+		Encerrar Loop
+	EndSe
+
+	Se V[P-1] == C
+		I[A] 	= P-1
+		I[B] 	= Varrer o V a procura da posicao do elemento 0
+		Encerrar Loop
+	EndSe
+
+	Se V[P-2] + V[P-1] == C
+		I[A] 	= P-2
+		I[B] 	= P-1
+		Encerrar Loop
+	EndSe
+
+	Se V[P-2] + V[P-1] > C
+		Se V[P-2] > C .E. V[P-1] > C
+			I[A] = P
+			I[B] = P [??? - E seguro afirmar isso ou pressupor isso ???? ]
+			P = P + 1	
+			Repete Loop
+		Se V[P-2] > C
+			I[A] = P-1
+			I[B] = P
+			P = P + 1
+			Repete Loop
+		Senao
+			I[A] = P-2
+			I[B] = P
+			P = P + 1
+			Repete Loop
+	EndSe
+
+	Se V[P] == C
+		I[A] 	= P
+		I[B] 	= Varrer o V a procura da posicao do elemento 0
+		Encerrar Loop
+
+	Se V[P] < C
+		????????
+		-- aqui temos 3 elementos menores que C
+		-- o que fazer?
+	EndSe
+
+
+	Se V[P] > C
+		I[A] = P-2
+		I[B] = P-1
+		P = P + 1
+		Repete loop
+	EndSe
+
+
