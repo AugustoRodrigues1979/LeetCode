@@ -1,5 +1,4 @@
 pub fn solution(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    let length: i32;
     let mut result: Vec<i32> = vec![0,1];
 
     for n in 0..nums.len() {

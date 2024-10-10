@@ -8,7 +8,7 @@
 mod two_sum;
 
 fn main() {
-    let mut nums = vec![2,0,3,1,4];
+    let nums = vec![2,0,3,1,4];
     let target : i32 = 6;
     let result: Vec<i32>;
     println!("Hello, world!");
